@@ -10,7 +10,7 @@ function Hero() {
                 </h1>
                 <p className="text-gray-700">Finden Sie mit Leichtigkeit den passenden Steuerberater, der Ihre
                     finanziellen Ziele versteht und Sie effektiv unterstützt. Vertrauen und Expertise vereint</p>
-                <Link className="hidden md:block" href="/steuerberater">
+                <Link href="/steuerberater">
                     <button className="bg-primary rounded px-8 py-1.5 text-center w-fit text-white mt-5">Steuerberater
                         finden
                     </button>
