@@ -1,16 +1,18 @@
 import React from 'react';
 import {Steuerberater} from "@/types/collection";
 import SteuerberaterCard from "@/components/Steuerberater/SteuerberaterCard";
+import supabase from "@/supabase/utils/supabase";
 
-async function getSteuerberater() {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/steuerberater`, {cache: 'no-store'})
-    const steuerberater = await res.json()
+async function getSteuerberater(): Promise<Steuerberater[] | null> {
+    const steuerberater = await supabase.from('kanzlein').select();
 
-    return steuerberater.data
+    return steuerberater.data;
 }
 
 async function SteuerberaterView() {
-    const steuerberaterList: Steuerberater[] = await getSteuerberater()
+    const steuerberaterList: Steuerberater[] | null = await getSteuerberater()
+    if (steuerberaterList == null)
+        return (<div>error fetching data ...</div>)
 
     return (
         <div className="max-w-5xl mx-auto gap-5 flex flex-col my-12 px-2">
