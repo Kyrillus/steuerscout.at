@@ -19,7 +19,7 @@ function SteuerberaterCard(steuerberater: Steuerberater) {
                 </div>
                 <div className="flex flex-col items-center">
                     <Rating value={steuerberater["Google Rating"]??0} fractions={2} readOnly />
-                    <p className="text-gray-700 text-xs md:text-sm">{steuerberater["Google Rating Anzahl"]} Bewertungen</p>
+                    <p className="text-gray-700 text-xs md:text-sm">{steuerberater["Google Rating Anzahl"]??0} Bewertungen</p>
                 </div>
 
             </div>
